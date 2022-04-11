@@ -23,21 +23,33 @@ set noswapfile            " disable creating swap file
 
 " BUTT PLUGS
 call plug#begin()
-Plug 'preservim/nerdcommenter'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'jiangmiao/auto-pairs'
+Plug 'machakann/vim-sandwich'
+Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'thedenisnikulin/vim-cyberpunk'
 call plug#end()
 
+autocmd VimEnter * CHADopen --nofocus
+autocmd VimEnter * COQnow -s
+autocmd vimenter * ++nested colorscheme gruvbox
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == "CHADTree") | q | endif
 
-" Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-nnoremap <C-o> :NERDTreeToggle<CR>
-set termguicolors
-colorscheme cyberpunk
-let g:airline_theme='cyberpunk'
+" IM THE MAP
+
+nnoremap <C-o> :CHADopen --nofocus<CR>
+
+
+
+" Snippets
+lua require'lspconfig'.gopls.setup{}
+lua require'lspconfig'.bashls.setup{}
+lua require'lspconfig'.dockerls.setup{}
+lua require'lspconfig'.jsonls.setup{}
+lua require'lspconfig'.pyright.setup{}
+lua require'lspconfig'.terraform_lsp.setup{}
+lua require'lspconfig'.vimls.setup{}
+lua require'lspconfig'.yamlls.setup{}
+lua require'lspconfig'.ansiblels.setup{}
