@@ -1,22 +1,64 @@
-# The definition of color schemes.
+# Garuda Linux configuration for Alacritty
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 100
+    lines: 30
+  dynamic_padding: true
+  decorations: full
+  title: Alacritty
+  class:
+    instance: Alacritty
+    general: Alacritty
+    #window.decorations_theme_variant: dark
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
 font:
-  # The normal (roman) font face to use.
+  size: 13
   normal:
-    family: Cascadia Code
-    style: Regular
-
-  # The bold font face
+    family: JetBrains Mono
   bold:
-    family: Cascadia Code
-    style: Bold
-
-  # The italic font face
+    family:  JetBrains Mono
   italic:
-    family: Cascadia Code
-    style: Italic
+    family:  JetBrains Mono
+  bold_italic:
+    family:  JetBrains Mono
+    size: 13.0
 
-  # Point size of the font
-  size: 11.0
+draw_bold_text_with_bright_colors: true
+
+save_to_clipboard: true
+
+window.dynamic_title: true
+
+cursor:
+  style: Underline
+
+live_config_reload: true
+
+shell:
+  program: /usr/bin/zsh
+  args:
+    - --login
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+    # (Windows, Linux, and BSD only)
+  - { key: V,        mods: Control|Shift, action: Paste            }
+  - { key: C,        mods: Control|Shift, action: Copy             }
+  - { key: Insert,   mods: Shift,         action: PasteSelection   }
+  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: Plus,     mods: Control,       action: IncreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
 
 schemes:
   gruvbox_material_hard_dark: &gruvbox_material_hard_dark
