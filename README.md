@@ -9,4 +9,5 @@ sudo dnf install git -y
 git clone https://github.com/tehbooom/dotfiles.git
 cd dotfiles/
 ./rhel_install.sh
+source ~/.bashrc
 ```
