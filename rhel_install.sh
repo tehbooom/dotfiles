@@ -100,7 +100,7 @@ python3 -m pip install --user pipx
 python3 -m pipx ensurepath
 sudo pipx ensurepath --globalpip3
 
-pipx install ansible-core==${ANSIBLE_VERSION}
+pipx install ansible-core=="${ANSIBLE_VERSION}"
 pipx install jmespath
 
 # Install terraform
@@ -108,17 +108,10 @@ wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${T
 unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 sudo mv terraform /usr/bin/terraform
 
-mkdir ~/.config/nvim
-cp -r config/nvim "$HOME/.config/nvim"
-mkdir ~/.config/nvim
+mkdir ~/.config/
 cp -r config/nvim "$HOME/.config/nvim"
 
 # Configure tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cp tmux.conf "$HOME/.tmux.conf"
 cp config/bash/bashrc ~/.bashrc
-# Configure tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-cp tmux.conf "$HOME/.tmux.conf"
-cp config/bash/bashrc ~/.bashrc
-sudo snap install clipboard
