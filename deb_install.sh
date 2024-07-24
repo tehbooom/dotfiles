@@ -1,4 +1,5 @@
 #!/bin/bash
+DIR=$(pwd)
 
 ## Setup terraform package
 wget -O- https://apt.releases.hashicorp.com/gpg |
@@ -41,7 +42,6 @@ sudo apt install -y gnupg \
 	fd-find \
 	tmux
 
-PWD=$(pwd)
 ## Install neovim
 git clone https://github.com/neovim/neovim
 cd neovim
@@ -50,8 +50,8 @@ ls
 cd build
 cpack -G DEB
 sudo dpkg -i --force-overwrite nvim-linux64.deb
-cd $PWD
-rm -rf neovim
+cd $DIR
+rm -rf ~/neovim
 
 ## Install yq
 sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
@@ -76,7 +76,6 @@ cp -r config/nvim "$HOME/.config/nvim"
 # Configure tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cp tmux.conf "$HOME/.tmux.conf"
-cp config/bash/bashrc ~/.bashrc
 
 # Install oh-my-zsh
 if [ ! -d ~/.oh-my-zsh/ ]; then
