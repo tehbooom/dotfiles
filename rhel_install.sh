@@ -17,46 +17,48 @@ sudo yum install snapd -y
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo dnf install -y \
-	wget \
-	tmux \
-	vim \
-	nodejs \
-	util-linux-user \
-	ninja-build \
-	libtool \
-	autoconf \
-	automake \
-	cmake \
-	gcc \
-	gcc-c++ \
-	make \
-	pkgconfig \
-	unzip \
-	patch \
-	gettext \
-	curl \
-	zlib-devel \
-	bzip2 \
-	bzip2-devel \
-	readline-devel \
-	sqlite \
-	sqlite-devel \
-	openssl-devel \
-	tk-devel \
-	libffi-devel xz-devel \
-	ripgrep \
-	fd-find \
-	lazygit \
-	json-c-devel \
-	tar \
-	gnupg2 \
-	@ruby \
-	perl \
-	java-17-openjdk \
-	php \
-	php-cli \
-	php-zip \
-	php-json
+  jq \
+  python3.12 \
+  wget \
+  tmux \
+  vim \
+  nodejs \
+  util-linux-user \
+  ninja-build \
+  libtool \
+  autoconf \
+  automake \
+  cmake \
+  gcc \
+  gcc-c++ \
+  make \
+  pkgconfig \
+  unzip \
+  patch \
+  gettext \
+  curl \
+  zlib-devel \
+  bzip2 \
+  bzip2-devel \
+  readline-devel \
+  sqlite \
+  sqlite-devel \
+  openssl-devel \
+  tk-devel \
+  libffi-devel xz-devel \
+  ripgrep \
+  fd-find \
+  lazygit \
+  json-c-devel \
+  tar \
+  gnupg2 \
+  @ruby \
+  perl \
+  java-17-openjdk \
+  php \
+  php-cli \
+  php-zip \
+  php-json
 
 # Build nvim
 mkdir ~/lab/build -p
@@ -79,22 +81,6 @@ wget https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
 mkdir ~/go
 
-# Install Rust and Cargo
-curl https://sh.rustup.rs -sSf | sh
-
-# Install pyenv
-curl https://pyenv.run | bash
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >>~/.bashrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >>~/.bashrc
-echo 'eval "$(pyenv init -)"' >>~/.bashrc
-PYENV_ROOT="$HOME/.pyenv"
-PATH="$PYENV_ROOT/bin:$PATH"
-pyenv init -
-
-# Install python 12
-pyenv install 3.12.2
-pyenv global 3.12.2
-
 # Install pipx
 python3 -m pip install --user pipx
 python3 -m pipx ensurepath
@@ -114,4 +100,5 @@ cp -r config/nvim "$HOME/.config/nvim"
 # Configure tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cp tmux.conf "$HOME/.tmux.conf"
+cp config/bash/git_prompt.sh ~/.git_prompt.sh
 cp config/bash/bashrc ~/.bashrc
