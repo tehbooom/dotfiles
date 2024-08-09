@@ -58,7 +58,8 @@ sudo dnf install -y \
   php \
   php-cli \
   php-zip \
-  php-json
+  php-json \
+  ansible
 
 # Build nvim
 mkdir ~/lab/build -p
@@ -81,13 +82,7 @@ wget https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
 mkdir ~/go
 
-# Install pipx
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-sudo pipx ensurepath --globalpip3
-
-pipx install ansible-core=="${ANSIBLE_VERSION}"
-pipx install jmespath
+python3 -m pip install jmespath
 
 # Install terraform
 wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
