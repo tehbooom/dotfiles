@@ -18,7 +18,7 @@ yellow=$(tput setaf 214)
 green=$(tput setaf 142)
 red=$(tput setaf 167)
 orange=$(tput setaf 208)
-clr=$(tput setaf 246) # Reset
+clr=$(tput setaf 15) # Reset
 
 source ~/.git_prompt.sh
 PS1='${red}\u ${clr}in${orange} \W $( __git_ps1 "${clr}on ${yellow}%s ")${green}λ ${clr}'
