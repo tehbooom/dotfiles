@@ -74,7 +74,8 @@ rm -rf ~/lab/build
 cd $DIR
 
 # NVIM deps
-npm install -g neovim
+sudo npm install -g neovim
+sudo npm install --global yarn
 yarn global add tree-sitter-cli
 
 # Install Go
