@@ -89,7 +89,6 @@ wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${T
 unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 sudo mv terraform /usr/bin/terraform
 
-mkdir ~/.config/
 cp -r config/nvim "$HOME/.config/nvim"
 
 # Configure tmux
