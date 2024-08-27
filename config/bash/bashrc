@@ -26,6 +26,7 @@ PS1='${red}\u ${clr}in${orange} \W $( __git_ps1 "${clr}on ${yellow}%s ")${green}
 # GO STUFF
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin
 if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
