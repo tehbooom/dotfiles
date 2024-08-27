@@ -82,8 +82,12 @@ yarn global add tree-sitter-cli
 wget https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
 mkdir ~/go
+go install github.com/terraform-docs/terraform-docs@v0.18.0
 
-python3 -m pip install jmespath
+python3.12 -m ensurepip --upgrade
+python3.12 -m pip install --upgrade pip
+python3.12 -m pip install jmespath
+python3.12 -m pip install pre-commit
 
 # Install terraform
 wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
