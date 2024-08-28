@@ -99,5 +99,9 @@ cp -r config/nvim "$HOME/.config/nvim"
 # Configure tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cp tmux.conf "$HOME/.tmux.conf"
-cp config/bash/git_prompt.sh ~/.git_prompt.sh
+
+### Configure zsh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+mkdir ~/.oh-my-bash/custom/themes/gruvbox
+cp config/bash/gruvbox.theme.sh ~/.oh-my-bash/custom/themes/gruvbox/
 cp config/bash/bashrc ~/.bashrc
