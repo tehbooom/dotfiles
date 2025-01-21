@@ -1,3 +1,6 @@
+[env]
+TERM = "xterm-256color"
+[general]
 live_config_reload = true
 import = [
     "~/.config/alacritty/themes/themes/gruvbox_material_medium_dark.toml"
@@ -92,12 +95,19 @@ multiplier = 3
 [selection]
 save_to_clipboard = true
 
-[shell]
-args = ["--login"]
+[terminal.shell]
 program = "/bin/zsh"
+#args = ["--login", "-c", "TERM=xterm-256color"]
+
+
+[terminal]
+osc52 = "CopyPaste"
 
 [window]
 decorations = "Buttonless"
+dynamic_title = false
+title = "CarpTerm"
+startup_mode = "Maximized"
 dynamic_padding = true
 opacity = 0.8
 padding = { x = 5, y = 5 }
